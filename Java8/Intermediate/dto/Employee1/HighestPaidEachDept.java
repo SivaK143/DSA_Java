@@ -1,8 +1,6 @@
 package Java8.Intermediate.dto.Employee1;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class HighestPaidEachDept {
@@ -20,8 +18,9 @@ public class HighestPaidEachDept {
         //Finance -> vikram
         //IT -> mike
 
-     Map<String, List<Employee>> list = employees.stream()
-                .collect(Collectors.groupingBy(Employee::getDepartment, Collectors.toList()));
+     Map<String, Optional<Employee>> list = employees.stream()
+                .collect(Collectors.groupingBy(Employee::getDepartment, Collectors.maxBy(Comparator.comparing(Employee::getSalary))));
+
         System.out.println(list);
     }
 }
