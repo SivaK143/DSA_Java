@@ -8,7 +8,7 @@ public class PivotIndexRotatedArray {
         while(start<=end){
             int mid=start+(end-start)/2;
             //ascending part there is no chance of answer will present
-            if(arr[mid]<arr[arr.length-1]) end=mid-1;
+            if(arr[mid]<=arr[arr.length-1]) end=mid-1;
             else{
                 ans=mid;
                 start=mid+1;
